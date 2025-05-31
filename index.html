@@ -1,37 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Team Techno</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Team Techno</title>
   <style>
+    /* Base styling */
     body {
       font-family: sans-serif;
       background: #0f0f0f;
       color: #00ffff;
       text-align: center;
       padding-top: 100px;
-      overflow-x: hidden;
+      margin: 0;
+      opacity: 0;
+      animation: fadeInBody 1.2s ease-out forwards;
+      transition: opacity 1s ease-out;
     }
+
+    /* Navigation bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #0f0f0fcc;
+      border-bottom: 1px solid #00ffffaa;
+      padding: 12px 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      backdrop-filter: blur(8px);
+      animation: popIn 1s ease-in-out;
+    }
+
+    nav a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      border: 1px solid #00ffff;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background-color: transparent;
+      transition: all 0.3s ease-in-out;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: #00ffff;
+      color: #0f0f0f;
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #00ffffaa;
+    }
+
+    /* Headings */
     h1 {
       font-size: 48px;
-      animation: fadeInDown 1s ease-out;
+      margin-bottom: 20px;
+      animation: slideDown 1s ease-out;
     }
-    p {
-      font-size: 20px;
-      margin-top: 20px;
-      animation: fadeInUp 1.5s ease-out;
-    }
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body>
-  <h1>Welcome to Team Techno!</h1>
-  <p>This is our official GitHub Page. Stay tuned for awesome stuff.</p>
-</body>
-</html>
+
+    h2 {
+      color: #00ffcc;
+      f
