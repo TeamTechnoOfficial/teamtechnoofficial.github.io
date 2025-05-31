@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>About - Team Techno</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #eee;
+      margin: 0;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: #ccc;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+
+    nav a.active {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .buttons {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .buttons a {
+      background-color: #222;
+      padding: 10px 15px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    section {
+      padding: 2rem;
+      border-bottom: 1px solid #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: #1a1a1a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <h1>Team Techno</h1>
     <nav>
@@ -19,34 +94,42 @@
   </header>
 
   <main>
-    <section>
+    <div class="buttons">
+      <a href="#who">Who We Are</a>
+      <a href="#why">Why We Exist</a>
+      <a href="#believe">We Believe In</a>
+    </div>
+
+    <section id="who">
       <h2>Who We Are</h2>
-      <p><strong>Team Techno</strong> is a group of young, ambitious ethical hackers, game developers, and tech enthusiasts who operate with one goal: <em>to innovate and dominate ethically</em>. We specialize in building complex systems, addons, and game mods — and we operate with sharp minds and cleaner code.</p>
+      <p><strong>Team Techno</strong> is a group of passionate ethical hackers, developers, and Minecraft modders pushing the limits of what’s possible. We’re not afraid to try hard, break boundaries, and prove we can do what others think is impossible.</p>
     </section>
 
-    <section>
+    <section id="why">
       <h2>Why We Exist</h2>
-      <p>We're not a company. We're not a group. We're a <strong>movement</strong>. Team Techno was founded to:
+      <p>Team Techno was founded to bring young minds together for something powerful:
         <ul>
-          <li>Break limits in MCPE through ultra-realistic mods</li>
-          <li>Explore ethical hacking with Kali Linux & team ops</li>
-          <li>Educate ourselves & others through real project experience</li>
+          <li>Create the most advanced Minecraft addons</li>
+          <li>Master ethical hacking tools like Kali Linux</li>
+          <li>Build experience through real-world digital challenges</li>
         </ul>
       </p>
     </section>
 
-    <section>
+    <section id="believe">
       <h2>We Believe In</h2>
       <ul>
         <li>Knowledge over ego</li>
         <li>Creativity over conformity</li>
-        <li>Code that speaks louder than words</li>
+        <li>Skill over show-off</li>
+        <li>Community over chaos</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Team Techno. All rights reserved.</p>
+    <p>&copy; 2025 Team Techno. Built by the best.</p>
   </footer>
+
 </body>
 </html>
