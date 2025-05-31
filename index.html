@@ -9,12 +9,24 @@
       color: #00ffff;
       text-align: center;
       padding-top: 100px;
+      overflow-x: hidden;
     }
     h1 {
       font-size: 48px;
+      animation: fadeInDown 1s ease-out;
     }
     p {
       font-size: 20px;
+      margin-top: 20px;
+      animation: fadeInUp 1.5s ease-out;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
