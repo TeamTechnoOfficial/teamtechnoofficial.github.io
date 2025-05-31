@@ -3,67 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Team Techno</title>
+  <title>Team Techno - Home</title>
   <style>
-    /* Base styling */
     body {
-      font-family: sans-serif;
-      background: #0f0f0f;
-      color: #00ffff;
-      text-align: center;
-      padding-top: 100px;
       margin: 0;
-      opacity: 0;
-      animation: fadeInBody 1.2s ease-out forwards;
-      transition: opacity 1s ease-out;
+      background-color: #0f0f0f;
+      color: #00ffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
     }
 
-    /* Navigation bar */
-    nav {
+    .overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #0f0f0fcc;
-      border-bottom: 1px solid #00ffffaa;
-      padding: 12px 0;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #0f0f0f;
       z-index: 1000;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    .overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    header {
+      text-align: center;
+      padding-top: 15vh;
+      animation: fadeInDown 1.2s ease-out;
+    }
+
+    header h1 {
+      font-size: 64px;
+      margin: 0;
+      text-shadow: 0 0 15px #00ffffaa;
+    }
+
+    header p {
+      font-size: 22px;
+      margin-top: 10px;
+      color: #00ffcc;
+    }
+
+    .button-container {
+      margin-top: 60px;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
-      backdrop-filter: blur(8px);
-      animation: popIn 1s ease-in-out;
+      animation: fadeInUp 1.5s ease-out;
     }
 
-    nav a {
-      color: #00ffff;
-      text-decoration: none;
-      font-weight: bold;
-      border: 1px solid #00ffff;
-      padding: 10px 16px;
-      border-radius: 10px;
+    .button-container a {
+      padding: 16px 30px;
       background-color: transparent;
-      transition: all 0.3s ease-in-out;
-      display: inline-block;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    nav a:hover,
-    nav a:focus {
-      background: #00ffff;
-      color: #0f0f0f;
-      transform: scale(1.1);
-      box-shadow: 0 0 10px #00ffffaa;
-    }
-
-    /* Headings */
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      animation: slideDown 1s ease-out;
-    }
-
-    h2 {
-      color: #00ffcc;
-      f
+      color: #00ffff;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      text-decoration: none
