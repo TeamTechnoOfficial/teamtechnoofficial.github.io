@@ -45,6 +45,30 @@
       transform: scale(1.07);
       border: 1.5px solid #00ffff;
     }
+    .lang-switcher {
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .lang-switcher button {
+      background: #00ffff;
+      color: #0f0f0f;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 0 10px #00ffff66;
+    }
+    .lang-switcher button.active,
+    .lang-switcher button:hover {
+      background: #0f0f0f;
+      color: #00ffff;
+      border: 1.5px solid #00ffff;
+    }
     h1 {
       font-size: 54px;
       margin-bottom: 16px;
@@ -116,27 +140,82 @@
       .nav-buttons a { font-size: 15px; padding: 10px 16px;}
       footer { font-size: 14px; }
     }
+
+    /* RTL support for Arabic */
+    body[lang="ar"] {
+      direction: rtl;
+      font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+      text-align: right;
+    }
+    body[lang="ar"] .nav-buttons,
+    body[lang="ar"] .lang-switcher {
+      flex-direction: row-reverse;
+    }
+    body[lang="ar"] .about-container {
+      text-align: right;
+    }
   </style>
+  <!-- Google Fonts for Arabic (Cairo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body lang="en">
   <div class="nav-buttons">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </div>
-  <h1>About Team Techno</h1>
+  <div class="lang-switcher">
+    <button id="en-btn" class="active">English</button>
+    <button id="ar-btn">العربية</button>
+  </div>
+  <h1>
+    <span class="en">About Team Techno</span>
+    <span class="ar" style="display:none;">عن فريق تِكنو</span>
+  </h1>
   <div class="about-container">
-    <h2>Who Are We?</h2>
+    <h2>
+      <span class="en">Who Are We?</span>
+      <span class="ar" style="display:none;">من نحن؟</span>
+    </h2>
     <p>
-      Team Techno is a collective of passionate young innovators with big dreams and relentless ambition. Our mission is to entertain, inspire, and bring joy to as many people as possible. From ethical hacking adventures to creative Minecraft servers and add-ons, from engaging Roblox games to even grander projects on the horizon—our journey is only just beginning.<br><br>
-      We are dedicated to pushing boundaries, learning new skills, and building a future where technology brings people together. With every project, we strive to leave a positive impact and create experiences that matter.<br><br>
-      Gratefully moving forward—In God's will,<br>
-      <b>The Members of Team Techno</b>
+      <span class="en">
+        Team Techno is a collective of passionate young innovators with big dreams and relentless ambition. Our mission is to entertain, inspire, and bring joy to as many people as possible. From ethical hacking to creative coding, game development, and digital art, we embrace every opportunity to learn and grow.<br><br>
+        We are dedicated to pushing boundaries, learning new skills, and building a future where technology brings people together. With every project, we strive to leave a positive impact and create experiences worth remembering.<br><br>
+        Gratefully moving forward—In God's will,<br>
+        <b>The Members of Team Techno</b>
+      </span>
+      <span class="ar" style="display:none;">
+        فريق تِكنو هو مجموعة من المبتكرين الشباب الشغوفين ذوي الأحلام الكبيرة والطموح الذي لا يتوقف. مهمتنا هي الترفيه والإلهام ونشر السعادة لأكبر عدد ممكن من الناس. من الاختراق الأخلاقي إلى البرمجة الإبداعية وتطوير الألعاب والفن الرقمي، نرحب بكل فرصة للتعلم والنمو.<br><br>
+        نحن ملتزمون بتخطي الحدود وتعلم مهارات جديدة وبناء مستقبل يجمع فيه التكنولوجيا بين الناس. مع كل مشروع، نسعى لترك أثر إيجابي وخلق تجارب لا تُنسى.<br><br>
+        ممتنون لمواصلة المسير — بإذن الله<br>
+        <b>أعضاء فريق تِكنو</b>
+      </span>
     </p>
   </div>
   <footer>
-    &copy; 2025 Team Techno. All rights reserved.
+    <span class="en">&copy; 2025 Team Techno. All rights reserved.</span>
+    <span class="ar" style="display:none;">&copy; 2025 فريق تِكنو. جميع الحقوق محفوظة.</span>
   </footer>
+  <script>
+    const langBtns = {
+      en: document.getElementById('en-btn'),
+      ar: document.getElementById('ar-btn')
+    };
+    function setLang(lang) {
+      document.body.setAttribute('lang', lang);
+      document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en' ? '' : 'none'));
+      document.querySelectorAll('.ar').forEach(el => el.style.display = (lang === 'ar' ? '' : 'none'));
+      langBtns.en.classList.toggle('active', lang === 'en');
+      langBtns.ar.classList.toggle('active', lang === 'ar');
+    }
+    langBtns.en.addEventListener('click', () => setLang('en'));
+    langBtns.ar.addEventListener('click', () => setLang('ar'));
+    // Optional: Detect browser language on first load
+    // window.addEventListener('DOMContentLoaded', () => {
+    //   const userLang = navigator.language.startsWith('ar') ? 'ar' : 'en';
+    //   setLang(userLang);
+    // });
+  </script>
 </body>
 </html>
