@@ -6,65 +6,32 @@
   <title>Home - Team Techno</title>
   <style>
     body { background: #181828; color: #00ffe0; font-family: 'Roboto', Arial, sans-serif; text-align: center; }
-    .lang-ar { direction: rtl; text-align: right; font-family: 'Cairo', 'Roboto', Arial, sans-serif; }
     .nav-bar { margin: 32px 0; }
     .nav-btn { margin: 0 8px; padding: 8px 20px; border-radius: 12px; border: 2px solid #00ffe0; background: #161b22; color: #00ffe0; cursor: pointer; text-decoration: none; }
-    #lang-toggle { margin: 20px 0; padding: 8px 18px; border-radius: 12px; border: 2px solid #00ffe0; background: #161b22; color: #00ffe0; cursor: pointer; }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>Team Techno</h1>
-  <button id="lang-toggle">العربية</button>
-
-  <div class="subtitle" lang="en">
+  <div class="subtitle">
     Futuristic Innovation | Ethical Hacking | Game Dev | Young Minds Unleashed
   </div>
-  <div class="subtitle lang-ar" lang="ar" dir="rtl">
-    الابتكار المستقبلي | القرصنة الأخلاقية | تطوير الألعاب | إطلاق العقول الشابة
-  </div>
   <div class="nav-bar">
-    <a href="members.html" class="nav-btn" lang="en">Members</a>
-    <a href="projects.html" class="nav-btn" lang="en">Projects</a>
-    <a href="about.html" class="nav-btn" lang="en">About Us</a>
-    <a href="members.html" class="nav-btn lang-ar" lang="ar" dir="rtl">الأعضاء</a>
-    <a href="projects.html" class="nav-btn lang-ar" lang="ar" dir="rtl">المشاريع</a>
-    <a href="about.html" class="nav-btn lang-ar" lang="ar" dir="rtl">من نحن</a>
+    <a href="members.html" class="nav-btn">Members</a>
+    <a href="projects.html" class="nav-btn">Projects</a>
+    <a href="about.html" class="nav-btn">About Us</a>
   </div>
 
   <main>
-    <p lang="en">
+    <p>
       Welcome to <strong>Team Techno</strong>, where tomorrow is built today.<br>
       We are a collective of young, ambitious minds, pushing the limits of technology.<br>
       Explore our <b>Members</b>, discover our <b>Projects</b>, and learn more <b>About Us</b>.<br>
       Join us as we code the future, together.
     </p>
-    <p class="lang-ar" lang="ar" dir="rtl">
-      مرحبًا بكم في <strong>فريق تكنو</strong>، حيث نبني الغد اليوم.<br>
-      نحن مجموعة من العقول الشابة الطموحة، ندفع حدود التقنية بالإبداع.<br>
-      استكشفوا <b>الأعضاء</b> لدينا، واكتشفوا <b>مشاريعنا</b>، وتعرّفوا أكثر <b>من نحن</b>.<br>
-      انضموا إلينا لنبرمج المستقبل معًا.
-    </p>
   </main>
 
   <footer>
-    <span lang="en">&copy; 2025 Team Techno. All rights reserved.</span>
-    <span class="lang-ar" lang="ar" dir="rtl">© 2025 فريق تكنو. جميع الحقوق محفوظة.</span>
+    <span>&copy; 2025 Team Techno. All rights reserved.</span>
   </footer>
-  <script>
-    let currentLang = localStorage.getItem('lang') || 'en';
-    function updateLangDisplay() {
-      const isArabic = currentLang === 'ar';
-      document.querySelectorAll('[lang="en"], .lang-en').forEach(el => el.style.display = isArabic ? 'none' : '');
-      document.querySelectorAll('[lang="ar"], .lang-ar').forEach(el => el.style.display = isArabic ? '' : 'none');
-      document.getElementById('lang-toggle').textContent = isArabic ? 'English' : 'العربية';
-      localStorage.setItem('lang', currentLang);
-    }
-    document.getElementById('lang-toggle').addEventListener('click', function() {
-      currentLang = (currentLang === 'en') ? 'ar' : 'en';
-      updateLangDisplay();
-    });
-    updateLangDisplay();
-  </script>
 </body>
 </html>
