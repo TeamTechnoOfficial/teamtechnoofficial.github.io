@@ -1,87 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>About Team Techno</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Base styling */
+    /* Futuristic Neon Theme */
     body {
-      font-family: sans-serif;
-      background: #0f0f0f;
+      font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+      background: radial-gradient(ellipse at center, #161a1d 0%, #0f0f0f 100%);
       color: #00ffff;
       text-align: center;
+      min-height: 100vh;
+      margin: 0;
       padding-top: 100px;
       opacity: 0;
       animation: fadeInBody 1.2s ease-out forwards;
     }
-
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      animation: slideDown 1s ease-out;
-    }
-
-    h2 {
-      color: #00ffcc;
-      font-size: 32px;
-      animation: fadeInUp 1.2s ease-out;
-    }
-
-    p {
-      font-size: 20px;
-      margin: 15px auto;
-      max-width: 800px;
-      animation: fadeInUp 1.4s ease-out;
-    }
-
-    /* Buttons */
     .nav-buttons {
-      margin-bottom: 50px;
+      margin-bottom: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
-
     .nav-buttons a {
-      color: #00ffff;
-      margin: 0 10px;
+      color: #0f0f0f;
+      background: linear-gradient(90deg, #00ffff 0%, #00ffcc 100%);
+      border: none;
+      outline: none;
+      padding: 12px 32px;
+      border-radius: 16px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
       text-decoration: none;
-      font-weight: bold;
-      border: 1px solid #00ffff;
-      padding: 10px 16px;
-      border-radius: 10px;
-      background-color: transparent;
-      transition: all 0.3s ease-in-out;
-      display: inline-block;
+      box-shadow: 0 0 20px #00ffff66, 0 0 8px #00ffff44 inset;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
       animation: popIn 1s ease-in-out;
     }
-
     .nav-buttons a:hover {
-      background: #00ffff;
-      color: #0f0f0f;
-      transform: scale(1.1);
-      box-shadow: 0 0 10px #00ffffaa;
+      background: linear-gradient(90deg, #0f0f0f 0%, #00ffff 100%);
+      color: #00ffff;
+      box-shadow: 0 0 30px #00ffffbb, 0 0 8px #00ffff77 inset;
+      transform: scale(1.07);
+      border: 1.5px solid #00ffff;
     }
-
-    html {
-      scroll-behavior: smooth;
+    h1 {
+      font-size: 54px;
+      margin-bottom: 16px;
+      color: #00ffff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 22px #00ffff99, 0 2px 8px #00ffcc66;
+      animation: slideDown 1s ease-out;
     }
-
-    section {
-      margin-bottom: 80px;
+    h2 {
+      color: #00ffcc;
+      font-size: 34px;
+      margin-bottom: 24px;
+      animation: fadeInUp 1.2s ease-out;
     }
-
+    .about-container {
+      background: rgba(20, 40, 45, 0.45);
+      border-radius: 24px;
+      padding: 40px 30px 30px 30px;
+      max-width: 800px;
+      margin: 0 auto 80px auto;
+      box-shadow: 0 0 40px #00ffff22, 0 0 10px #00ffcc33 inset;
+      border: 2px solid #00ffff44;
+      animation: fadeInUp 1.4s ease-out;
+    }
+    p {
+      font-size: 22px;
+      line-height: 1.7;
+      color: #e5feff;
+      margin: 0;
+      text-shadow: 0 0 10px #00ffff44;
+    }
+    /* Footer */
+    footer {
+      margin-top: 90px;
+      padding: 18px 0;
+      font-size: 17px;
+      color: #00ffffbb;
+      background: linear-gradient(90deg, #0f0f0f 50%, #161a1d 100%);
+      border-top: 1.5px solid #00ffff44;
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 16px #00ffff22;
+      animation: fadeInBody 2s 1.1s backwards;
+    }
     /* Animations */
     @keyframes fadeInBody {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
     @keyframes slideDown {
-      0% { opacity: 0; transform: translateY(-30px); }
+      0% { opacity: 0; transform: translateY(-40px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
+      0% { opacity: 0; transform: translateY(24px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes popIn {
-      0% { opacity: 0; transform: scale(0.8);
+      0% { opacity: 0; transform: scale(0.8);}
+      80% { opacity: 1; transform: scale(1.08);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 32px; }
+      h2 { font-size: 24px; }
+      .about-container { padding: 20px 8px; }
+      .nav-buttons a { font-size: 15px; padding: 10px 16px;}
+      footer { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-buttons">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <h1>About Team Techno</h1>
+  <div class="about-container">
+    <h2>Who Are We?</h2>
+    <p>
+      Team Techno is a collective of passionate young innovators with big dreams and relentless ambition. Our mission is to entertain, inspire, and bring joy to as many people as possible. From ethical hacking adventures to creative Minecraft servers and add-ons, from engaging Roblox games to even grander projects on the horizon—our journey is only just beginning.<br><br>
+      We are dedicated to pushing boundaries, learning new skills, and building a future where technology brings people together. With every project, we strive to leave a positive impact and create experiences that matter.<br><br>
+      Gratefully moving forward—In God's will,<br>
+      <b>The Members of Team Techno</b>
+    </p>
+  </div>
+  <footer>
+    &copy; 2025 Team Techno. All rights reserved.
+  </footer>
+</body>
+</html>
