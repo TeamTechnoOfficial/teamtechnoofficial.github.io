@@ -5,29 +5,173 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home - Team Techno</title>
   <style>
-    body { background: #181828; color: #00ffe0; font-family: 'Roboto', Arial, sans-serif; text-align: center; }
-    .nav-bar { margin: 32px 0; }
-    .nav-btn { margin: 0 8px; padding: 8px 20px; border-radius: 12px; border: 2px solid #00ffe0; background: #161b22; color: #00ffe0; cursor: pointer; text-decoration: none; }
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap');
+    :root {
+      --primary: #00ffe0;
+      --accent: #0a0a0f;
+      --glow: #00ffe0cc;
+      --bg-grad: linear-gradient(135deg, #181828 0%, #0a0a0f 100%);
+      --btn-bg: #161b22;
+      --btn-hover: #00ffe0;
+      --btn-hover-txt: #0a0a0f;
+      --card-bg: rgba(20,26,34,0.85);
+      --box-shadow: 0 0 24px 4px #00ffe033, 0 8px 32px 0 #1a1a2a77;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      background: var(--bg-grad);
+      color: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .glow {
+      position: absolute;
+      z-index: 0;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--glow) 0%, transparent 80%);
+      top: -200px; left: -200px;
+      filter: blur(60px);
+      animation: glow-move 7s ease-in-out infinite alternate;
+    }
+    @keyframes glow-move {
+      0% { top: -200px; left: -200px; }
+      100% { top: 50px; left: 100px; }
+    }
+    header { margin-top: 80px; margin-bottom: 32px; text-align: center; z-index: 2; }
+    .brand-title {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 3.8rem;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      text-shadow: 0 0 24px var(--primary), 0 1px 22px #222;
+      line-height: 1.1;
+      animation: fadeInDown 1.2s .1s both;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .subtitle {
+      color: #bafffb;
+      font-size: 1.4rem;
+      margin-bottom: 36px;
+      letter-spacing: 0.04em;
+      font-weight: 400;
+      opacity: 0.85;
+      text-shadow: 0 0 8px #00ffe088;
+      animation: fadeIn 2s .2s both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 0.85;}
+    }
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin: 40px 0 0 0;
+      z-index: 2;
+      animation: slideIn 1.2s cubic-bezier(.47,1.64,.41,.8);
+    }
+    .nav-btn {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 1.18em;
+      padding: 16px 34px;
+      background: var(--btn-bg);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 14px;
+      transition: all 0.18s cubic-bezier(.47,1.64,.41,.8);
+      box-shadow: 0 2px 18px #00ffe022;
+      cursor: pointer; text-decoration: none;
+    }
+    .nav-btn:hover, .nav-btn:focus {
+      background: var(--btn-hover);
+      color: var(--btn-hover-txt);
+      border-color: #bafffb;
+      box-shadow: 0 0 36px #00ffe0cc, 0 0 80px #00ffe044;
+      transform: scale(1.04) translateY(-2px);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    main { width: 100%; display: flex; justify-content: center; z-index: 2; }
+    .intro-card {
+      background: var(--card-bg);
+      padding: 40px 32px;
+      border-radius: 24px;
+      max-width: 540px;
+      margin: 54px auto 0 auto;
+      box-shadow: var(--box-shadow);
+      text-align: center;
+      animation: fadeInUp 1.3s .3s both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .intro-card p {
+      font-size: 1.23em;
+      line-height: 1.65;
+      color: #d8fff8;
+      letter-spacing: 0.02em;
+    }
+    footer {
+      margin-top: auto;
+      padding: 48px 0 24px 0;
+      width: 100%;
+      text-align: center;
+      font-size: 1em;
+      color: #bafffb;
+      opacity: 0.88;
+      letter-spacing: 0.03em;
+      z-index: 2;
+      background: transparent;
+      text-shadow: 0 2px 20px #00ffe033;
+    }
+    @media (max-width: 700px) {
+      .brand-title { font-size: 2.1rem;}
+      .subtitle { font-size: 1.05rem;}
+      .intro-card { padding: 28px 10px; }
+      .nav-bar { gap: 10px;}
+      .nav-btn { padding: 13px 16px; font-size: 1em;}
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Team Techno</h1>
-  <div class="subtitle">
-    Futuristic Innovation | Ethical Hacking | Game Dev | Young Minds Unleashed
-  </div>
-  <div class="nav-bar">
-    <a href="members.html" class="nav-btn">Members</a>
-    <a href="projects.html" class="nav-btn">Projects</a>
-    <a href="about.html" class="nav-btn">About Us</a>
-  </div>
+  <div class="glow"></div>
+  <header>
+    <div class="brand-title">Team Techno</div>
+    <div class="subtitle">
+      Futuristic Innovation | Ethical Hacking | Game Dev | Young Minds Unleashed
+    </div>
+    <nav class="nav-bar">
+      <a href="members.html" class="nav-btn">Members</a>
+      <a href="projects.html" class="nav-btn">Projects</a>
+      <a href="about.html" class="nav-btn">About Us</a>
+    </nav>
+  </header>
 
   <main>
-    <p>
-      Welcome to <strong>Team Techno</strong>, where tomorrow is built today.<br>
-      We are a collective of young, ambitious minds, pushing the limits of technology.<br>
-      Explore our <b>Members</b>, discover our <b>Projects</b>, and learn more <b>About Us</b>.<br>
-      Join us as we code the future, together.
-    </p>
+    <section class="intro-card">
+      <p>
+        Welcome to <strong>Team Techno</strong>, where tomorrow is built today.<br>
+        We are a collective of young, ambitious minds, pushing the limits<br>
+        of technology with creativity, ethics, and passion.<br><br>
+        Explore our <b>Members</b>, discover our <b>Projects</b>, and learn more <b>About Us</b>.<br>
+        Join us as we code the future, together.
+      </p>
+    </section>
   </main>
 
   <footer>
