@@ -1,181 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Home - Team Techno</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap');
-    :root {
-      --primary: #00ffe0;
-      --accent: #0a0a0f;
-      --glow: #00ffe0cc;
-      --bg-grad: linear-gradient(135deg, #181828 0%, #0a0a0f 100%);
-      --btn-bg: #161b22;
-      --btn-hover: #00ffe0;
-      --btn-hover-txt: #0a0a0f;
-      --card-bg: rgba(20,26,34,0.85);
-      --box-shadow: 0 0 24px 4px #00ffe033, 0 8px 32px 0 #1a1a2a77;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+      background: radial-gradient(ellipse at center, #161a1d 0%, #0f0f0f 100%);
+      color: #00ffff;
+      text-align: center;
       min-height: 100vh;
-      background: var(--bg-grad);
-      color: var(--primary);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      overflow-x: hidden;
-      position: relative;
+      margin: 0;
+      padding-top: 100px;
+      opacity: 0;
+      animation: fadeInBody 1.2s ease-out forwards;
     }
-    .glow {
-      position: absolute;
-      z-index: 0;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--glow) 0%, transparent 80%);
-      top: -200px; left: -200px;
-      filter: blur(60px);
-      animation: glow-move 7s ease-in-out infinite alternate;
-    }
-    @keyframes glow-move {
-      0% { top: -200px; left: -200px; }
-      100% { top: 50px; left: 100px; }
-    }
-    header { margin-top: 80px; margin-bottom: 32px; text-align: center; z-index: 2; }
-    .brand-title {
-      font-family: 'Orbitron', Arial, sans-serif;
-      font-size: 3.8rem;
-      letter-spacing: 0.06em;
-      color: var(--primary);
-      text-shadow: 0 0 24px var(--primary), 0 1px 22px #222;
-      line-height: 1.1;
-      animation: fadeInDown 1.2s .1s both;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-40px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .subtitle {
-      color: #bafffb;
-      font-size: 1.4rem;
-      margin-bottom: 36px;
-      letter-spacing: 0.04em;
-      font-weight: 400;
-      opacity: 0.85;
-      text-shadow: 0 0 8px #00ffe088;
-      animation: fadeIn 2s .2s both;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0;}
-      to { opacity: 0.85;}
-    }
-    .nav-bar {
+    .nav-buttons {
+      margin-bottom: 60px;
       display: flex;
       justify-content: center;
-      gap: 28px;
-      margin: 40px 0 0 0;
-      z-index: 2;
-      animation: slideIn 1.2s cubic-bezier(.47,1.64,.41,.8);
+      gap: 20px;
     }
-    .nav-btn {
-      font-family: 'Orbitron', Arial, sans-serif;
-      font-size: 1.18em;
-      padding: 16px 34px;
-      background: var(--btn-bg);
-      color: var(--primary);
-      border: 2px solid var(--primary);
-      border-radius: 14px;
-      transition: all 0.18s cubic-bezier(.47,1.64,.41,.8);
-      box-shadow: 0 2px 18px #00ffe022;
-      cursor: pointer; text-decoration: none;
+    .nav-buttons a {
+      color: #0f0f0f;
+      background: linear-gradient(90deg, #00ffff 0%, #00ffcc 100%);
+      border: none;
+      outline: none;
+      padding: 12px 32px;
+      border-radius: 16px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      box-shadow: 0 0 20px #00ffff66, 0 0 8px #00ffff44 inset;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+      animation: popIn 1s ease-in-out;
     }
-    .nav-btn:hover, .nav-btn:focus {
-      background: var(--btn-hover);
-      color: var(--btn-hover-txt);
-      border-color: #bafffb;
-      box-shadow: 0 0 36px #00ffe0cc, 0 0 80px #00ffe044;
-      transform: scale(1.04) translateY(-2px);
+    .nav-buttons a:hover {
+      background: linear-gradient(90deg, #0f0f0f 0%, #00ffff 100%);
+      color: #00ffff;
+      box-shadow: 0 0 30px #00ffffbb, 0 0 8px #00ffff77 inset;
+      transform: scale(1.07);
+      border: 1.5px solid #00ffff;
     }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: translateY(0);}
+    .lang-switcher {
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
-    main { width: 100%; display: flex; justify-content: center; z-index: 2; }
-    .intro-card {
-      background: var(--card-bg);
-      padding: 40px 32px;
+    .lang-switcher button {
+      background: #00ffff;
+      color: #0f0f0f;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 0 10px #00ffff66;
+    }
+    .lang-switcher button.active,
+    .lang-switcher button:hover {
+      background: #0f0f0f;
+      color: #00ffff;
+      border: 1.5px solid #00ffff;
+    }
+    h1 {
+      font-size: 54px;
+      margin-bottom: 16px;
+      color: #00ffff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 22px #00ffff99, 0 2px 8px #00ffcc66;
+      animation: slideDown 1s ease-out;
+    }
+    .subtitle {
+      color: #00ffcc;
+      font-size: 28px;
+      margin-bottom: 30px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+    .intro-container {
+      background: rgba(20, 40, 45, 0.45);
       border-radius: 24px;
-      max-width: 540px;
-      margin: 54px auto 0 auto;
-      box-shadow: var(--box-shadow);
-      text-align: center;
-      animation: fadeInUp 1.3s .3s both;
+      padding: 40px 30px 30px 30px;
+      max-width: 800px;
+      margin: 0 auto 80px auto;
+      box-shadow: 0 0 40px #00ffff22, 0 0 10px #00ffcc33 inset;
+      border: 2px solid #00ffff44;
+      animation: fadeInUp 1.4s ease-out;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(60px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .intro-card p {
-      font-size: 1.23em;
-      line-height: 1.65;
-      color: #d8fff8;
-      letter-spacing: 0.02em;
+    p {
+      font-size: 22px;
+      line-height: 1.7;
+      color: #e5feff;
+      margin: 0;
+      text-shadow: 0 0 10px #00ffff44;
     }
     footer {
-      margin-top: auto;
-      padding: 48px 0 24px 0;
-      width: 100%;
-      text-align: center;
-      font-size: 1em;
-      color: #bafffb;
-      opacity: 0.88;
-      letter-spacing: 0.03em;
-      z-index: 2;
-      background: transparent;
-      text-shadow: 0 2px 20px #00ffe033;
+      margin-top: 90px;
+      padding: 18px 0;
+      font-size: 17px;
+      color: #00ffffbb;
+      background: linear-gradient(90deg, #0f0f0f 50%, #161a1d 100%);
+      border-top: 1.5px solid #00ffff44;
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 16px #00ffff22;
+      animation: fadeInBody 2s 1.1s backwards;
     }
-    @media (max-width: 700px) {
-      .brand-title { font-size: 2.1rem;}
-      .subtitle { font-size: 1.05rem;}
-      .intro-card { padding: 28px 10px; }
-      .nav-bar { gap: 10px;}
-      .nav-btn { padding: 13px 16px; font-size: 1em;}
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(24px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.8);}
+      80% { opacity: 1; transform: scale(1.08);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 32px; }
+      .subtitle { font-size: 19px; }
+      .intro-container { padding: 20px 8px; }
+      .nav-buttons a { font-size: 15px; padding: 10px 16px;}
+      footer { font-size: 14px; }
+    }
+    body[lang="ar"] {
+      direction: rtl;
+      font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+      text-align: right;
+    }
+    body[lang="ar"] .nav-buttons,
+    body[lang="ar"] .lang-switcher {
+      flex-direction: row-reverse;
+    }
+    body[lang="ar"] .intro-container {
+      text-align: right;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="glow"></div>
-  <header>
-    <div class="brand-title">Team Techno</div>
-    <div class="subtitle">
-      Futuristic Innovation | Ethical Hacking | Game Dev | Young Minds Unleashed
-    </div>
-    <nav class="nav-bar">
-      <a href="members.html" class="nav-btn">Members</a>
-      <a href="projects.html" class="nav-btn">Projects</a>
-      <a href="about.html" class="nav-btn">About Us</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="intro-card">
-      <p>
+<body lang="en">
+  <div class="nav-buttons">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="lang-switcher">
+    <button id="en-btn" class="active">English</button>
+    <button id="ar-btn">العربية</button>
+  </div>
+  <h1>
+    <span class="en">Team Techno</span>
+    <span class="ar" style="display:none;">فريق تِكنو</span>
+  </h1>
+  <div class="subtitle">
+    <span class="en">Futuristic Innovation | Ethical Hacking | Game Dev | Young Minds Unleashed</span>
+    <span class="ar" style="display:none;">الابتكار المستقبلي | القرصنة الأخلاقية | تطوير الألعاب | إطلاق العقول الشابة</span>
+  </div>
+  <div class="intro-container">
+    <p>
+      <span class="en">
         Welcome to <strong>Team Techno</strong>, where tomorrow is built today.<br>
-        We are a collective of young, ambitious minds, pushing the limits<br>
-        of technology with creativity, ethics, and passion.<br><br>
+        We are a collective of young, ambitious minds, pushing the limits of technology with creativity, ethics, and passion.<br><br>
         Explore our <b>Members</b>, discover our <b>Projects</b>, and learn more <b>About Us</b>.<br>
         Join us as we code the future, together.
-      </p>
-    </section>
-  </main>
-
+      </span>
+      <span class="ar" style="display:none;">
+        مرحبًا بكم في <strong>فريق تِكنو</strong>، حيث نبني الغد اليوم.<br>
+        نحن مجموعة من العقول الشابة الطموحة، ندفع حدود التقنية بالإبداع، والأخلاق، والشغف.<br><br>
+        استكشفوا <b>الأعضاء</b> لدينا، واكتشفوا <b>مشاريعنا</b>، وتعرّفوا أكثر <b>من نحن</b>.<br>
+        انضموا إلينا لنبرمج المستقبل معًا.
+      </span>
+    </p>
+  </div>
   <footer>
-    <span>&copy; 2025 Team Techno. All rights reserved.</span>
+    <span class="en">&copy; 2025 Team Techno. All rights reserved.</span>
+    <span class="ar" style="display:none;">© 2025 فريق تِكنو. جميع الحقوق محفوظة.</span>
   </footer>
+  <script>
+    const langBtns = {
+      en: document.getElementById('en-btn'),
+      ar: document.getElementById('ar-btn')
+    };
+    function setLang(lang) {
+      document.body.setAttribute('lang', lang);
+      document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en' ? '' : 'none'));
+      document.querySelectorAll('.ar').forEach(el => el.style.display = (lang === 'ar' ? '' : 'none'));
+      langBtns.en.classList.toggle('active', lang === 'en');
+      langBtns.ar.classList.toggle('active', lang === 'ar');
+    }
+    langBtns.en.addEventListener('click', () => setLang('en'));
+    langBtns.ar.addEventListener('click', () => setLang('ar'));
+    // Optional: Detect browser language on first load
+    // window.addEventListener('DOMContentLoaded', () => {
+    //   const userLang = navigator.language.startsWith('ar') ? 'ar' : 'en';
+    //   setLang(userLang);
+    // });
+  </script>
 </body>
 </html>
